@@ -38,14 +38,31 @@ function playRound (playerSelection, computerSelection){
 
 }
 
+function getPLayerChoice(){
+    let validateInput= false;
+    while(validateInput == false){
+        const choice = prompt('Rock Paper Scissors');
+        if (choice == null){
+            continue;
+        }
+
+        const choiceInLower = choice.toLowerCase();
+        if(options.includes(choiceInLower)){
+          return choiceInLower;  
+        }
+    }
+
+}
+
 function game(){
     console.log("Welcome")
     for (let i=0;i<5;i++){
-        const playerSelection= "rock";
+        const playerSelection= getPLayerChoice();
         const computerSelection= getComputerChoice();
         console.log(playRound(playerSelection, computerSelection));
     }
 
 }
+
 
 game();
